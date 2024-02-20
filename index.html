@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="javascript.js" defer></script>
+    <title>Driftwood Hompage</title>
+    <style>
+        body
+        {
+            background-color: rgba(76, 80, 74, 0.786);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height:100vh;
+        }
+
+        body,html
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        *
+        {
+            font-family: Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        main 
+        {
+            flex-grow: 1;
+
+        }
+
+        header, footer
+        {
+            flex-grow: 0;
+        }
+
+        h1 
+        {
+            text-align: center;
+            margin: 50px;
+        }
+
+        .images
+        {
+            display: flex;
+            justify-content: center;
+            gap:20px;
+            height: 500px;
+            margin: 100px 0;
+        }
+
+        ul
+        {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+
+        }
+
+        li
+        {
+            list-style: none;
+            border-right: 5px solid rgb(85, 84, 84);
+            padding-right: 25px;
+        }
+
+        .img1,.img2,.img3,.img4
+        {
+            opacity: 0;
+            transition: opacity 1s;
+            border-radius: 6%;
+        }
+
+        #showImage 
+        {
+            opacity: 1;
+        }
+
+        a
+        {
+            font-size: 25px;
+            text-decoration: none;
+            color: black;
+            
+            
+        }
+
+        footer 
+        {
+            max-height: fit-content;
+        }
+
+        #contact
+        {
+            border:none;
+        }
+
+        a:hover
+        {
+            text-decoration: underline;
+        }
+
+        hr
+        {
+            width: 66%;
+        }
+
+        p
+        {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        nav
+        {
+            display:flex;
+            height: 10%;
+            padding:20px;
+            cursor: pointer;
+
+
+        }
+
+        .icon
+        {
+            margin: auto 0;
+        }
+        .iconBar
+        {
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin: 6px 0;
+        }
+        .navigation
+        {
+            display:none;
+            flex-grow: 1;
+        }
+
+        .links
+        {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 40px;
+        }
+    
+    </style>
+    <script>
+        function navbarOn()
+        {
+            document.querySelector(".navigation").style.display="block";
+            document.querySelector("nav").style.backgroundColor="rgb(201, 201, 201)";
+            document.querySelectorAll(".iconBar").forEach((i) => {i.style.backgroundColor="black"});
+
+        }
+        function navbarOff()
+        {
+             document.querySelector(".navigation").style.display = "none";
+             document.querySelector("nav").style.backgroundColor="";
+             document.querySelectorAll(".iconBar").forEach((i) => {i.style.backgroundColor="white"});
+        }
+    </script>
+</head>
+<body>
+    <nav onmouseover="navbarOn()" onmouseout="navbarOff()">
+        <div class="icon">
+            <div class="iconBar"></div>
+            <div class="iconBar"></div>
+            <div class="iconBar"></div>
+        </div>
+        <div class="navigation">
+                <div class="links">
+                <a href="./music.html">music</a>
+                <a href="./altphotos.html">photos</a>
+                <a href="./videos.html">videos</a>
+                <a href="./pastevents.html">past events</a>
+                <a href="./upcomingevents.html">upcoming events</a>
+                <a href="./contact.html">contact</a>
+                </div>
+        </div>
+    </nav>
+    <main>
+        <div class="images">
+            <img src="./img/1.jpg" alt="" class="img1">
+            <img src="./img/2.jpg" alt="" class="img2"> 
+            <img src="./img/3.jpg" alt="" class="img3">
+            <img src="./img/4.jpg" alt="" class="img4">
+
+        </div>
+        
+    </main> 
+    <p>About Driftwood</p>
+    
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        body
+        {
+            background-color: rgba(76, 80, 74, 0.786);
+            display:flex;
+            flex-direction: column;
+            height:100vh;
+        }
+        button
+        {
+            background-color:transparent;
+            border-style: none;
+            cursor: pointer;
+            height:100%;
+            padding: 100px;
+            z-index: 1;
+            font-size: 80px;
+            font-family: 'Times New Roman';
+            flex-grow: 1;
+            color:white;
+        }
+        main
+        {
+            display:flex;
+            justify-content: center;
+            align-items: center; 
+            height:90%;
+        }
+        img
+        {
+            height: 75%;
+            width:auto;
+            max-width:90vw;
+        }
+
+        nav
+        {
+            display:flex;
+            height: 50px;
+            padding:20px;
+            cursor:pointer;
+
+        }
+
+        .icon
+        {
+            margin: auto 0;
+        }
+        .iconBar
+        {
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin: 6px 0;
+        }
+        .navigation
+        {
+            display:none;
+            flex-grow: 1;
+        }
+
+        .links
+        {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 40px;
+        }
+
+        a
+        {
+            font-size: 25px;
+            text-decoration: none;
+            color: black;            
+        }
+        a:hover
+        {
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav onmouseover="navbarOn()" onmouseout="navbarOff()">
+        <div class="icon">
+            <div class="iconBar"></div>
+            <div class="iconBar"></div>
+            <div class="iconBar"></div>
+        </div>
+        <div class="navigation">
+                <div class="links">
+                <a href="./music.html">music</a>
+                <a href="./altphotos.html">photos</a>
+                <a href="./videos.html">videos</a>
+                <a href="./pastevents.html">past events</a>
+                <a href="./upcomingevents.html">upcoming events</a>
+                <a href="./contact.html">contact</a>
+                <a href="./althomepage.html">home</a>
+                </div>
+        </div>
+    </nav>
+    <main>
+        <button onclick="movePicLeft()" style="text-align: right;"><</button>
+        <img>
+        <button onclick="movePicRight()" style="text-align: left;">></button>
+</main>
+</body>
+    <script>
+        let current_picture = 1;
+        const total_pictures = 4;
+        function getPicture ()
+        {
+            document.querySelector("img").src=`./img/${current_picture}.jpg`
+        }
+        function movePicLeft ()
+        {
+            current_picture--;
+            if (current_picture == 0)
+            {
+                current_picture = total_pictures;
+            }
+            getPicture();
+        }
+        function movePicRight ()
+        {
+            current_picture++;
+            if (current_picture > total_pictures)
+            {
+                current_picture = 1;
+            }
+            getPicture();
+        }
+        getPicture();
+        window.addEventListener("keydown", (e) => {
+            if (e.code == "ArrowRight")
+            {
+                movePicRight();
+            }
+            else if (e.code == "ArrowLeft")
+            {
+                movePicLeft();
+            }
+        });
+
+        function navbarOn()
+        {
+            document.querySelector(".navigation").style.display="block";
+            document.querySelector("nav").style.backgroundColor="rgb(201, 201, 201)";
+            document.querySelectorAll(".iconBar").forEach((i) => {i.style.backgroundColor="black"});
+
+        }
+        function navbarOff()
+        {
+             document.querySelector(".navigation").style.display = "none";
+             document.querySelector("nav").style.backgroundColor="";
+             document.querySelectorAll(".iconBar").forEach((i) => {i.style.backgroundColor="white"});
+        }
+
+        
+    </script>
+</html>
