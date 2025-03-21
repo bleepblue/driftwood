@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+    <link rel="preload" href="smallBanner.png" as="image">
+</head>
+<body style="background-color: black;">
+    <a href="/"><img src="./smallBanner.png" style="width:100%; display:block"></a>
+    
+        <nav id="nav">
+            <a href="songs.html">Songs</a>
+            <a href="photos.html">Photos</a>
+            <a href="videos.html">Videos</a>
+            <a href="contact.html">Contact</a>
+        </nav> 
+    <main>
+        
+        <h1>Samples</h1>
+
+        <div class="song" onclick="openInfo(event)">
+            <span>Hawkhurst Gang</span>
+            <audio src="HawkhurstSample.mp3"></audio>
+            <svg width="80" height="80" onclick="play(event)" onmouseenter="svgHover(event)" onmouseleave="svgHover(event)">
+                <circle cx="40" cy="40" r="40" fill="rgb(150,150,150)"></circle>
+                <polygon points="30,22 30,58 60,40" style="fill:black"></polygon>
+                <rect width="26" height="26" x="27" y="27"></rect>
+            </svg>        
+        </div>
+
+        <div class="dropdown">
+            <div class="dropdownText">
+            ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus soluta neque libero sed 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellendus cum rerum dolorem 
+            nulla aperiam cumque, ratione aliquam, ea veritatis maxime. Ipsum impedit minima quam voluptatem maxime eum ex fuga.
+            <p style="margin-bottom:0; font-weight: bold; font-size: 24px;"><a href="https://www.google.co.uk" style="color:rgb(58, 58, 58)">Buy Full Song!</a></p>
+            </div>
+        </div>
+
+
+
+        <div class="song" onclick="openInfo(event)">
+            <span>Only Love</span>
+            <audio src="Gordon_C OnlyLoveGUIDE_16Jan2024.mp3"></audio>
+            <svg width="80" height="80" onclick="play(event)" onmouseenter="svgHover(event)" onmouseleave="svgHover(event)">
+                <circle cx="40" cy="40" r="40" fill="rgb(150,150,150)"></circle>
+                <polygon points="30,22 30,58 60,40" style="fill:black"></polygon>
+                <rect width="26" height="26" x="27" y="27"></rect>
+            </svg>        
+        </div>
+
+        <div class="dropdown">
+            <div class="dropdownText">
+            ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus soluta neque libero sed 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellendus cum rerum dolorem 
+            nulla aperiam cumque, ratione aliquam, ea veritatis maxime. Ipsum impedit minima quam voluptatem maxime eum ex fuga.
+            <p style="margin-bottom:0; font-weight: bold; font-size: 24px;"><a href="https://www.google.co.uk" style="color:rgb(58, 58, 58)">Buy Full Song!</a></p>
+            </div>
+        </div>
+
+
+
+        <div class="song" onclick="openInfo(event)">
+            <span>Harbour Lights</span>
+            <audio src="Harbour_sample.mp3"></audio>
+            <svg width="80" height="80" onclick="play(event)" onmouseenter="svgHover(event)" onmouseleave="svgHover(event)">
+                <circle cx="40" cy="40" r="40" fill="rgb(150,150,150)"></circle>
+                <polygon points="30,22 30,58 60,40" style="fill:black"></polygon>
+                <rect width="26" height="26" x="27" y="27"></rect>
+            </svg>        
+        </div>
+
+        <div class="dropdown">
+            <div class="dropdownText">
+            ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus soluta neque libero sed 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellendus cum rerum dolorem 
+            nulla aperiam cumque, ratione aliquam, ea veritatis maxime. Ipsum impedit minima quam voluptatem maxime eum ex fuga.
+            <p style="margin-bottom:0; font-weight: bold; font-size: 24px;"><a href="https://www.google.co.uk" style="color:rgb(58, 58, 58)">Buy Full Song!</a></p>
+            </div>
+        </div>
+
+        <img id="greenMan" src="greenman.png" style="height:150px; width:150px; margin:18% auto 30px; display:block;">
+
+
+
+    </main>
+</body>
+<script>
+    const samples = {};
+    let open = false;
+    function openInfo(event)
+    {
+        
+
+        if(event.target.nodeName === "svg" || event.target.nodeName === "circle" || event.target.nodeName === "polygon" || event.target.nodeName === "rect")
+            {
+                return;
+            }
+        let sampleName;
+        let dropdown;
+        
+        if(event.target.nodeName == "SPAN")
+            {
+                sampleName = event.target.nextElementSibling.src;
+                dropdown = event.target.parentElement.nextElementSibling;
+            }
+        else
+            {
+                console.log(event.target.querySelector("audio").src)
+                sampleName = event.target.querySelector("audio").src;
+                dropdown = event.target.nextElementSibling;
+            }
+        if(samples[sampleName] == null)
+            {
+                samples[sampleName] = false;
+            }
+        
+
+        if(!samples[sampleName])
+            {
+                dropdown.style.height = dropdown.scrollHeight + "px";
+                samples[sampleName] = true;
+               
+            
+     
+            }
+        else if (samples[sampleName])
+            {
+                dropdown.style.height = 0;
+                samples[sampleName] = false;
+               
+     
+            } 
+        
+    }
+    let playingMusic = false;
+    function play(event)
+    {
+        if(event.target.nodeName == "svg")
+            {
+                return;
+            }
+
+        if(!playingMusic)
+            {
+                event.target.parentElement.previousElementSibling.play();
+                playingMusic = true;
+                event.target.parentElement.querySelector("polygon").style.display  = "none";
+                event.target.parentElement.querySelector("rect").style.display = "block";
+                event.target.parentElement.style.opacity = "65%"
+
+            }
+        else if(playingMusic)
+            {
+                event.target.parentElement.previousElementSibling.load();
+                playingMusic = false;
+                event.target.parentElement.querySelector("polygon").style.display  = "block";
+                event.target.parentElement.querySelector("rect").style.display = "none";
+                event.target.parentElement.style.opacity = "100%";
+            }
+      
+    }
+
+    function svgHover(event)
+        {
+            if(event.type === "mouseenter")
+                {
+                    if(!playingMusic)
+                        {
+                            event.target.style.opacity = "65%";
+                        }
+                    if(playingMusic)
+                        {
+                            event.target.style.opacity = "80%";
+                        }
+                }
+            if(event.type === "mouseleave")
+            {
+                if(!playingMusic)
+                        {
+                            event.target.style.opacity = "100%";
+                        }
+                if(playingMusic)
+                        {
+                            event.target.style.opacity = "65%";
+                        }
+                }
+        }
+
+
+
+    
+
+</script>
+    <style>
+
+        h1
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 80px auto 20px;
+            color: white;
+        }
+
+        main
+        {
+            margin: 0 auto;
+            border-left:2px white solid;
+            border-right:2px white solid;
+            width: 60%;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 93vh;
+        }
+
+        body
+        {
+            margin:0;
+        }
+
+        #nav
+        {
+            display: flex;
+            justify-content: center;
+            gap: 18vw;
+            font-size: 25px;
+            align-items: center;
+            color:white;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            padding: 5px 0;
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
+            height: 1.636vw;
+        }
+        a
+        {
+            text-decoration: none;
+            color:white;
+            cursor: pointer;
+            transition: font-size 0.2s;
+            
+        }
+        a:hover
+        {
+            font-size: 30px;
+        }
+        
+
+        .song
+        {
+
+            
+            background-color: rgb(222 222 222);
+            cursor: pointer;
+            height: 120px;
+            width: 55%;
+            margin: 10px auto;
+            box-sizing: border-box;
+            padding: 20px 10%;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            gap: 20%;
+
+        }
+
+        .song:hover
+        {
+            background-color: rgb(180 180 180);
+        }
+
+        .dropdown
+        {
+            background-color: rgb(180, 180, 180);
+            color: rgb(77, 77, 77);
+            height: 0px;
+            transition: height 0.3s;
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+     
+            
+        }
+
+        .dropdownText
+        {
+            padding:30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+
+        .title, .play, .buy
+        {
+            flex-grow: 1;
+            
+        }
+        .title, .play
+        {
+            border-right: 1px white solid;
+        }
+
+        rect
+        {
+            display: none;
+        }
+    </style>
+</html>

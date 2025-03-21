@@ -3,200 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascript.js" defer></script>
-    <title>Driftwood Hompage</title>
+    <title>Driftwood Troubadours</title>
+    <link rel="preload" href="banner.png" as="image">
     <style>
         body
         {
-            background-color: rgba(76, 80, 74, 0.786);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height:100vh;
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
         }
-
-        body,html
-        {
-            margin: 0;
-            padding: 0;
-        }
-
-        *
-        {
-            font-family: Helvetica, Arial, sans-serif;
-            box-sizing: border-box;
-        }
-
-        main 
-        {
-            flex-grow: 1;
-
-        }
-
-        header, footer
-        {
-            flex-grow: 0;
-        }
-
-        h1 
-        {
-            text-align: center;
-            margin: 50px;
-        }
-
-        .images
+        #nav
         {
             display: flex;
             justify-content: center;
-            gap:20px;
-            height: 500px;
-            margin: 100px 0;
+            gap: 18vw;
+            font-size: 25px;
+            align-items: center;
+            color:white;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            padding: 5px 0;
+            position: relative; 
+            top: 15.8vw; 
+            height: 3vw; 
+            z-index: 3;
+            border-bottom: 2px solid white;
         }
-
-        ul
-        {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-
-        }
-
-        li
-        {
-            list-style: none;
-            border-right: 5px solid rgb(85, 84, 84);
-            padding-right: 25px;
-        }
-
-        .img1,.img2,.img3,.img4
-        {
-            opacity: 0;
-            transition: opacity 1s;
-            border-radius: 6%;
-        }
-
-        #showImage 
-        {
-            opacity: 1;
-        }
-
         a
         {
-            font-size: 25px;
             text-decoration: none;
-            color: black;
+            color:white;
+            cursor: pointer;
+            transition: font-size 0.2s;
             
-            
         }
-
-        footer 
-        {
-            max-height: fit-content;
-        }
-
-        #contact
-        {
-            border:none;
-        }
-
         a:hover
         {
-            text-decoration: underline;
-        }
-
-        hr
-        {
-            width: 66%;
-        }
-
-        p
-        {
-            text-align: center;
             font-size: 30px;
         }
 
-        nav
+        .textContainer
         {
-            display:flex;
-            height: 10%;
-            padding:20px;
-            cursor: pointer;
-
-
+            width: 60%;
+            margin: 0 auto;
+            font-size: 27px;
+            text-align: left;
+            height:100%;
+            padding: 40px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        .icon
+        main
         {
-            margin: auto 0;
-        }
-        .iconBar
-        {
-            width: 35px;
-            height: 5px;
-            background-color: white;
-            margin: 6px 0;
-        }
-        .navigation
-        {
-            display:none;
-            flex-grow: 1;
+            height: 100%;
         }
 
-        .links
-        {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        gap: 40px;
-        }
-    
+        
     </style>
-    <script>
-        function navbarOn()
-        {
-            document.querySelector(".navigation").style.display="block";
-            document.querySelector("nav").style.backgroundColor="rgb(201, 201, 201)";
-            document.querySelectorAll(".iconBar").forEach((i) => {i.style.backgroundColor="black"});
-
-        }
-        function navbarOff()
-        {
-             document.querySelector(".navigation").style.display = "none";
-             document.querySelector("nav").style.backgroundColor="";
-             document.querySelectorAll(".iconBar").forEach((i) => {i.style.backgroundColor="white"});
-        }
-    </script>
 </head>
-<body>
-    <nav onmouseover="navbarOn()" onmouseout="navbarOff()">
-        <div class="icon">
-            <div class="iconBar"></div>
-            <div class="iconBar"></div>
-            <div class="iconBar"></div>
+<body style="background-color: black; margin:0; display:flex; flex-direction: column; height: 60vw">
+    <header style="flex-grow:0;flex-shrink:0; position: sticky; top: -15.8vw; height: 24.92vw; overflow: visible; z-index: 0">
+        <img src="banner.png" style="width:100%;" id="banner" onmouseenter="navDown()">
+    </header>
+    <nav id="nav" onclick="clickScroll()">
+        <a href="songs.html">Songs</a>
+        <a href="photos.html">Photos</a>
+        <a href="videos.html">Videos</a>
+        <a href="contact.html">Contact</a>
+    </nav> 
+     <main style="background-color: black; color:white; position: relative; top: 15.8vw; z-index: 1; cursor:pointer" onclick="clickScroll()" onmouseenter="navUp()" >
+        
+        
+        <div class="textContainer">
+            <img id="greenMan" src="greenman.png" style="height:150px; width:150px; margin:0 auto; display:block; opacity:0;">
+                <p>Driftwood Troubadours are a song writing duo from Rowlands Castle on the Hampshire-West Sussex border.</p>
+                <p>We perform only our own compositions, many of which tell stories in the tradition of travelling entertainers- 
+                    hence "troubadours".</p>
+                <p>Performances can take a traditional concert format, with short introductions to each song, but 
+                    we specialise in presentations illustrated with projected images which we believe enhances the 
+                    listening experience. This works well with groups and societies looking for something different 
+                    from the usual talk for their regular meetings.</p>
         </div>
-        <div class="navigation">
-                <div class="links">
-                <a href="./music.html">music</a>
-                <a href="./altphotos.html">photos</a>
-                <a href="./videos.html">videos</a>
-                <a href="./pastevents.html">past events</a>
-                <a href="./upcomingevents.html">upcoming events</a>
-                <a href="./contact.html">contact</a>
-                </div>
-        </div>
-    </nav>
-    <main>
-        <div class="images">
-            <img src="./img/1.jpg" alt="" class="img1">
-            <img src="./img/2.jpg" alt="" class="img2"> 
-            <img src="./img/3.jpg" alt="" class="img3">
-            <img src="./img/4.jpg" alt="" class="img4">
+       
+       
 
-        </div>
+   
+    
         
     </main> 
-    <p>About Driftwood</p>
     
 </body>
+<script>
+    window.onpageshow = scrollToTop;
+    let border = false;
+    let maxScroll = false;
+    function scroll()
+    {
+        if (document.documentElement.scrollTop > (window.innerWidth * 0.157))
+            {
+                
+                if(maxScroll)
+                    {
+                        return;
+                    }
+                else
+                    {
+                        console.log(document.documentElement.scrollTop)
+                        maxScroll = true;
+                        document.querySelector("header").style.overflow = "hidden";
+                        document.querySelector("header").style.zIndex = 1;
+                        document.querySelector("main").style.zIndex = 0;
+                        document.querySelector("nav").style.position = "sticky";
+                        document.querySelector("nav").style.top = "9.1258vw";
+                        document.querySelector("main").style.cursor ="";
+                        document.querySelector("nav").style.cursor = "";
+                        document.querySelector('nav').removeEventListener("click", clickScroll);
+                        document.querySelector('main').removeEventListener("click", clickScroll);
+                    }
+
+            }
+        else
+            {
+                if(maxScroll)
+                    {
+                        maxScroll = false;
+                        document.querySelector("header").style.overflow = "visible";
+                        document.querySelector("header").style.zIndex = 0;
+                        document.querySelector("main").style.zIndex = 1;
+                        document.querySelector("nav").style.position = "relative";
+                        document.querySelector("nav").style.top = "0px";
+                        document.querySelector("main").style.cursor ="pointer";
+                        document.querySelector("nav").style.cursor = "pointer";
+                        document.querySelector('nav').addEventListener("click", clickScroll);
+                        document.querySelector('main').addEventListener("click", clickScroll);
+
+                    }
+                if(hoverEnd)
+                    {
+                        if(document.documentElement.scrollTop >= window.innerWidth / 20 + 10)
+                            {
+                                hoverEnd = false;
+                                activated = false;
+                            }
+                       
+                    }
+                let num = (window.innerWidth * 0.157) - document.documentElement.scrollTop;
+                document.querySelector("nav").style.top = num + "px";
+                document.querySelector("main").style.top = num + "px";
+                if (document.documentElement.scrollTop <= window.innerWidth * 0.14)
+                    {
+                        document.getElementById("greenMan").style.opacity = document.documentElement.scrollTop / (window.innerWidth * 0.14);
+                    }
+                    
+
+
+                        let opacity = document.documentElement.scrollTop / (window.innerWidth * 0.04);
+                        if(opacity <= 1)
+                            {  
+                                document.getElementById("nav").style.borderTop = `2px solid rgba(255, 255, 255, ${opacity})`;
+                            }
+                        let textOpacity = opacity -1.5;
+                        if (textOpacity <=1)
+                            {
+                                document.querySelector(".textContainer").style.borderLeft = `2px solid rgba(255, 255, 255, ${textOpacity})`;
+                                document.querySelector(".textContainer").style.borderRight= `2px solid rgba(255, 255, 255, ${textOpacity})`;
+                            }
+
+                        
+
+                    
+                
+            }
+    }
+
+   
+
+    window.onscroll = scroll;
+
+
+
+
+    let hoverEnd = false;
+    let intervalID;
+    let activated = false;
+
+    function navUp()
+    {
+        if(document.documentElement.scrollTop != 0)
+            {
+                return;
+            }
+        if(activated)
+            { 
+                return;
+            }
+       
+
+                
+               
+                    activated = true;
+                    intervalID = setInterval(function()
+                    {
+                    if(document.documentElement.scrollTop >= window.innerWidth / 20)
+                        {
+                            clearInterval(intervalID);
+                            hoverEnd = true;
+                            return;
+                            
+                            
+                        }
+                    else
+                        {
+                            document.documentElement.scrollTop += 1;
+                        }
+
+                    }, 2)
+                    
+            
+    }
+
+    function navDown()
+    {
+        if(!activated)
+            {
+                return;
+            }
+        else
+            {
+                clearInterval(intervalID);
+                activated = false;
+                intervalID = setInterval(function()
+                    {
+                            if(document.documentElement.scrollTop == 0)
+                                {
+                                    clearInterval(intervalID);
+                                    return;
+                                }
+                            else
+                                {
+                                    document.documentElement.scrollTop -= 1;
+                                }
+                    }, 2)
+            }
+    }
+
+    function clickScroll()
+    {
+        activated = false;
+        clearInterval(intervalID);
+        intervalID = setInterval(function(){
+            if(document.documentElement.scrollTop >= window.innerWidth * 0.157)
+                {
+                    clearInterval(intervalID);
+                    return;
+                }
+            else
+                {
+                    document.documentElement.scrollTop += 3;
+                }
+        }, 2)
+        
+    }
+
+    function scrollToTop()
+    {
+        clearInterval(intervalID);
+        intervalID = setInterval(function(){
+            if(document.documentElement.scrollTop == 0)
+                {
+                    clearInterval(intervalID);
+                    return;
+                }
+            else
+                {
+                    document.documentElement.scrollTop -= 100;
+                }
+        }, 1)
+        
+    }
+
+// onscroll event
+// check to see if scrolltop is greater than a certain number (maximum narrowing of banner) - if so, exit function. 
+// toggle button - is content relative or sticky? toggles either way first time you go below or above the threshold
+// if not:
+// change top position to be scroll top number
+// max number is literally just a percentage of the viewport width
+
+
+// 724 pixel, top, 1200 pixel bottom. 15.332%
+//consider altering dimensions to 0.157983905, 0.249258789, 9.1258
+// ^^ have done so
+
+// header height 25.41vw. overflow visible, z-index 0
+// main relative position, top 15vw, z-index 1
+// scroll event reduces main top
+// once it reaches maximum: header overflow hidden, z-index 1;
+// main position doesn't matter, but z-index must be 0
+// nav bar turns sticky
+
+
+
+
+// onmouseenter and onmouseleave
+// raises content by a small amount on entering
+// lowers by same amount on leaving
+// check raising against maximum scroll
+// i'm thinking -- this can be acheived by simply setting scrolltop, which will then trigger onscroll - only if scrolltop property can be given a transition to make it smooth
+// it must be disabled WHILE scrolling as could be irritating if scrolling put mouse over area
+
+// only when scrolltop 0 .
+//animation scrolls up
+// manual scrolling ends it. also removes mouseleave
+// clicking for max scroll available all the way up to max scroll
+
+// on page load add its to nav. when triggered, removes from nav and adds to img. when img triggered, removes from img and added to nav.scrolling removes it from everywhere. being at top adds it to nav.
+
+//TODO
+
+// add hover/click functionality (see above)
+// make banner a wee bit smaller
+// add nav bar buttons 
+// put in the green man somewhere
+// make home page content
+// picture gallery
+// video gallery
+// songs
+// contact form / page
+
+
+
+// TOMORROW: PHOTOS, VIDEOS, AND SONGS
+// gallery format. thumbnails, hover over and expand slightly, click on and become a modal covering most of the screen.
+// everything around them darkened. arrows on either side only appear when you move the mouse towards them. loop through the different photos/videos.
+
+
+// consider altering dimensions to 0.157983905, 0.249258789, 9.1258
+
+// maybe figure out a way of loading everything before it shows so it doesn't flicker? perhaps reduce the image filesize?
+
+// CAN I NOT USE A WRAPPER FOR THE NAV/MAIN SECTION?
+//A SECOND OVERFLOW!!!!
+// wrapper - overflow hidden. nav higher z index than main. nav sticky.
+//no
+//SOLUTION - JUST PUT NAV INSIDE MAIN, AND FIDDLE WITH SOME OF THE VALUES
+
+// as you scroll down the green man increases in opacity...
+
+</script>
+
 </html>
