@@ -66,83 +66,58 @@ a:hover
     font-size: 30px;
 }
 
-
-.song
+.songContainer
 {
-    background-color: rgb(222 222 222);
-    cursor: pointer;
-    height: 120px;
-    width: 55%;
-    margin: 10px auto;
-    box-sizing: border-box;
-    padding: 20px 10%;
-    border-radius: 15px;
     display: flex;
-    justify-content: space-between;
+    color: white;
+    justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: bold;
-    gap: 20%;
+}
+
+.title
+{
+    width: 500px;
 
 }
 
-.song:hover
+.info
 {
-    background-color: rgb(180 180 180);
-}
-
-.dropdown
-{
-    background-color: rgb(180, 180, 180);
-    color: rgb(77, 77, 77);
-    height: 0px;
-    transition: height 0.3s;
-    width: 50%;
-    margin: 0 auto;
-    border-radius: 15px;
-    overflow: hidden;
-
-    
-}
-
-.dropdownText
-{
-    padding:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    color: white;
+    font-size: 23px;
 }
 
-.title, .play, .buy
+p
 {
-    flex-grow: 1;
+    width: 580px;
+    margin-top: 0;
     
 }
-.title, .play
+
+svg:hover
 {
-    border-right: 1px white solid;
+    cursor:pointer;
 }
 
 rect
 {
     display: none;
+    fill: white;
 }
 
-p
-{
-    margin-bottom:0; 
-    font-weight: bold; 
-    font-size: 24px;
-}
 
-p > a
-{
-    color:rgb(58, 58, 58);
-}
+
+
 
 polygon
 {
-    fill:black;
+    fill:white;
 }
 
 @media screen and (max-width: 1900px) {

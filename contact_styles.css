@@ -1,0 +1,75 @@
+body
+{
+    background-color: black;
+    margin:0;
+}
+
+#smallBanner
+{
+    width: 100%;
+    display: block
+}
+
+#greenMan
+{
+    height:150px; 
+    width:150px; 
+    margin:30% auto 30px; 
+    display:block;
+}
+
+h1
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 80px auto 20px;
+    color: white;
+}
+
+main
+{
+    margin: 0 auto;
+    border-left:2px white solid;
+    border-right:2px white solid;
+    width: 60%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 75vh;
+}
+
+#nav
+{
+    display: flex;
+    justify-content: center;
+    gap: 18vw;
+    font-size: 25px;
+    align-items: center;
+    color:white;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 5px 0;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    height: 1.636vw;
+}
+a
+{
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+    transition: font-size 0.2s;
+    
+}
+a:hover
+{
+    font-size: 30px;
+}
+
+p
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 80px auto 20px;
+    color: white;
+    font-size: 42px;
+}

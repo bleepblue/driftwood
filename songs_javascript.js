@@ -1,110 +1,81 @@
-const samples = {};
-let open = false;
-function openInfo(event)
-{
-    
-
-    if(event.target.nodeName === "svg" || event.target.nodeName === "circle" || event.target.nodeName === "polygon" || event.target.nodeName === "rect")
-        {
-            return;
-        }
-    let sampleName;
-    let dropdown;
-    
-    if(event.target.nodeName == "SPAN")
-        {
-            sampleName = event.target.nextElementSibling.src;
-            dropdown = event.target.parentElement.nextElementSibling;
-        }
-    else
-        {
-            sampleName = event.target.querySelector("audio").src;
-            dropdown = event.target.nextElementSibling;
-        }
-    if(samples[sampleName] == null)
-        {
-            samples[sampleName] = false;
-        }
-    
-
-    if(!samples[sampleName])
-        {
-            dropdown.style.height = dropdown.scrollHeight + "px";
-            samples[sampleName] = true;
-           
-        
- 
-        }
-    else if (samples[sampleName])
-        {
-            dropdown.style.height = 0;
-            samples[sampleName] = false;
-           
- 
-        } 
-    
-}
 let playingMusic = false;
+let currentlyPlaying = false;
 function play(event)
 {
-    if(event.target.nodeName == "svg")
-        {
-            return;
-        }
 
     if(!playingMusic)
         {
-            event.target.parentElement.previousElementSibling.play();
+            if (event.target.nodeName === "svg")
+                {
+                    event.target.previousElementSibling.play();
+                    currentlyPlaying = event.target.previousElementSibling.id;
+                }
+            else
+                {
+                    event.target.parentElement.previousElementSibling.play();
+                    currentlyPlaying = event.target.previousElementSibling.id;
+                }
             playingMusic = true;
             event.target.parentElement.querySelector("polygon").style.display  = "none";
-            event.target.parentElement.querySelector("rect").style.display = "block";
-            event.target.parentElement.style.opacity = "65%"
-
+            event.target.parentElement.querySelector("rect").style.display = "block";           
         }
+
     else if(playingMusic)
         {
-            event.target.parentElement.previousElementSibling.load();
+            if (event.target.nodeName === "svg")
+                {
+                    if (currentlyPlaying != event.target.previousElementSibling.id)
+                        {
+                            document.getElementById(currentlyPlaying).load();
+                            document.getElementById(currentlyPlaying).parentElement.querySelector("polygon").style.display  = "block";
+                            document.getElementById(currentlyPlaying).parentElement.querySelector("rect").style.display  = "none";
+                            event.target.previousElementSibling.play();
+                            event.target.parentElement.querySelector("polygon").style.display  = "none";
+                            event.target.parentElement.querySelector("rect").style.display = "block";           
+                            currentlyPlaying = event.target.previousElementSibling.id;
+                            playingMusic = true;
+                            return
+                        }
+
+                    else
+                        {
+                            event.target.previousElementSibling.load();
+                            currentlyPlaying = false;
+                        }
+
+                }
+            else
+                {
+                    if (currentlyPlaying != event.target.parentElement.previousElementSibling.id)
+                        {
+                            document.getElementById(currentlyPlaying).load();
+                            document.getElementById(currentlyPlaying).parentElement.querySelector("polygon").style.display  = "block";
+                            document.getElementById(currentlyPlaying).parentElement.querySelector("rect").style.display  = "none";
+                            event.target.parentElement.previousElementSibling.play();
+                            event.target.parentElement.querySelector("polygon").style.display  = "none";
+                            event.target.parentElement.querySelector("rect").style.display = "block";           
+                            currentlyPlaying = event.target.parentElement.previousElementSibling.id;
+                            playingMusic = true;
+                            return
+                        }
+                    else
+                        {
+                            event.target.parentElement.previousElementSibling.load();
+                            currentlyPlaying = false;
+                        }
+
+                }
             playingMusic = false;
             event.target.parentElement.querySelector("polygon").style.display  = "block";
             event.target.parentElement.querySelector("rect").style.display = "none";
-            event.target.parentElement.style.opacity = "100%";
         }
   
 }
 
-function svgHover(event)
-    {
-        if(event.type === "mouseenter")
-            {
-                if(!playingMusic)
-                    {
-                        event.target.style.opacity = "65%";
-                    }
-                if(playingMusic)
-                    {
-                        event.target.style.opacity = "80%";
-                    }
-            }
-        if(event.type === "mouseleave")
-        {
-            if(!playingMusic)
-                    {
-                        event.target.style.opacity = "100%";
-                    }
-            if(playingMusic)
-                    {
-                        event.target.style.opacity = "65%";
-                    }
-            }
-    }
 
-document.querySelectorAll('.song').forEach(element => {
-    element.addEventListener('click', openInfo)
-});
+
 
 document.querySelectorAll('svg').forEach(element => {
     element.addEventListener('click', play);
-    element.addEventListener('mouseenter', svgHover);
-    element.addEventListener('mouseleave', svgHover);
 })
 

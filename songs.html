@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Songs</title>
-    <link rel="preload" href="smallBanner.png" as="image">
+    <link rel="preload" href="assets/smallBanner.png" as="image">
     <link rel="stylesheet" href="songs_styles.css">
-    <script src="songs_javascript.js"></script>
+    <script src="songs_javascript.js" defer></script>
 
 </head>
 <body>
-    <a href="/"><img src="./smallBanner.png" id="smallBanner"></a>
+    <a href="/"><img src="assets/smallBanner.png" id="smallBanner"></a>
     
         <nav id="nav">
             <a href="songs.html">Songs</a>
@@ -20,70 +20,68 @@
         </nav> 
     <main>
         
-        <h1>Samples</h1>
+        <h1>Song Samples</h1>
 
-        <div class="song" >
-            <span>Hawkhurst Gang</span>
-            <audio src="HawkhurstSample.mp3"></audio>
+        <div class="songContainer" >
+            <div class="title">Hawkhurst Gang</div>
+            <audio src="assets/songs/HawkhurstSample.mp3" id="hawkhurst"></audio>
             <svg width="80" height="80" >
-                <circle cx="40" cy="40" r="40" fill="rgb(150,150,150)"></circle>
-                <polygon points="30,22 30,58 60,40" ></polygon>
                 <rect width="26" height="26" x="27" y="27"></rect>
+                <polygon points="30,22 30,58 60,40" ></polygon>
             </svg>        
         </div>
 
-        <div class="dropdown">
-            <div class="dropdownText">
-            ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus soluta neque libero sed 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellendus cum rerum dolorem 
-            nulla aperiam cumque, ratione aliquam, ea veritatis maxime. Ipsum impedit minima quam voluptatem maxime eum ex fuga.
-            <p ><a href="https://www.google.co.uk">Buy Full Song!</a></p>
-            </div>
+        <div class="info">
+            <p>
+                Song info Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. 
+            </p>
         </div>
 
 
 
-        <div class="song" >
-            <span>Only Love</span>
-            <audio src="Gordon_C OnlyLoveGUIDE_16Jan2024.mp3"></audio>
+        <div class="songContainer" >
+            <div class="title">Only Love</div>
+            <audio src="assets/songs/OnlyLoveWed Mix2 20Feb2024.mp3" id="onlyLove"></audio>
             <svg width="80" height="80" >
-                <circle cx="40" cy="40" r="40" fill="rgb(150,150,150)"></circle>
-                <polygon points="30,22 30,58 60,40"></polygon>
                 <rect width="26" height="26" x="27" y="27"></rect>
-            </svg>        
-        </div>
-
-        <div class="dropdown">
-            <div class="dropdownText">
-            ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus soluta neque libero sed 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellendus cum rerum dolorem 
-            nulla aperiam cumque, ratione aliquam, ea veritatis maxime. Ipsum impedit minima quam voluptatem maxime eum ex fuga.
-            <p ><a href="https://www.google.co.uk">Buy Full Song!</a></p>
-            </div>
-        </div>
-
-
-
-        <div class="song" >
-            <span>Harbour Lights</span>
-            <audio src="Harbour_sample.mp3"></audio>
-            <svg width="80" height="80">
-                <circle cx="40" cy="40" r="40" fill="rgb(150,150,150)"></circle>
                 <polygon points="30,22 30,58 60,40" ></polygon>
-                <rect width="26" height="26" x="27" y="27"></rect>
             </svg>        
         </div>
 
-        <div class="dropdown">
-            <div class="dropdownText">
-            ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus soluta neque libero sed 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repellendus cum rerum dolorem 
-            nulla aperiam cumque, ratione aliquam, ea veritatis maxime. Ipsum impedit minima quam voluptatem maxime eum ex fuga.
-            <p><a href="https://www.google.co.uk" >Buy Full Song!</a></p>
-            </div>
+        <div class="info">
+            <p>
+                Song info Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. 
+            </p>
         </div>
 
-        <img id="greenMan" src="greenman.png">
+
+
+        <div class="songContainer" >
+            <div class="title">Harbour Lights</div>
+            <audio src="assets/songs/Harbour_sample.mp3" id="harbourLights"></audio>
+            <svg width="80" height="80" >
+                <rect width="26" height="26" x="27" y="27"></rect>
+                <polygon points="30,22 30,58 60,40" ></polygon>
+            </svg>        
+        </div>
+
+        <div class="info">
+            <p>
+                Song info Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. 
+            </p>
+        </div>
+
+
+        <img id="greenMan" src="assets/greenman.png">
 
 
 

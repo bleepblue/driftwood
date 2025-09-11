@@ -1,0 +1,164 @@
+        body
+        {
+            font-family: Arial, sans-serif;
+            background-color: black; 
+            margin:0;
+        }
+
+        #nav
+        {
+            display: flex;
+            justify-content: center;
+            gap: 18vw;
+            font-size: 25px;
+            align-items: center;
+            color:white;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            padding: 5px 0;
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
+            height: 1.636vw;
+        }
+
+        a
+        {
+            text-decoration: none;
+            color:white;
+            cursor: pointer;
+            transition: font-size 0.2s;
+        }
+
+        #greenMan
+        {
+            height:150px; 
+            width:150px; 
+            margin:100px auto 0; 
+            display:block;
+        }
+
+        #smallBanner
+        {
+            width:100%; 
+            display:block;
+        }
+
+        a:hover
+        {
+            font-size: 30px;
+        }
+
+        main
+        {
+            padding: 0.5vw;
+        }
+
+        .thumbnail
+        {
+            object-fit: cover;
+            width: 15.3vw;
+            height: 15.3vw;
+        }
+
+        .thumbnailContainer
+        {
+            margin: 2vw;
+            width: 15.3vw;
+            height: 15.3vw;
+            display: inline-block;
+        }
+
+        .caption
+        {
+            color: white;
+            font-size: 25px;
+            padding: 5px;
+            margin: 5px
+        }
+
+        .thumbnail:hover
+        {
+            cursor:pointer;
+            filter:brightness(120%);
+            box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.15);
+    
+        }
+
+        .close:hover, .previous:hover, .next:hover
+        {
+            cursor: pointer;
+        }
+        
+        .modal
+        {
+            display:none;
+            backdrop-filter: blur(3px);         
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: auto;
+            align-items: center;
+            justify-content: center;
+            
+
+        }
+
+        .wrapper
+        {
+            height: 80%;
+            position: relative;
+        }
+
+        .modalContent
+        {
+            height: 100%;
+            box-shadow: 0 0 30px 30px rgba(31, 31, 31, 0.8);
+
+        }
+
+        .close
+        {
+            font-weight: bold;
+            font-size: 70px;
+            color: grey;
+            position: absolute;
+            top: -12%;
+            right: -12%
+        }
+
+        .close:hover
+        {
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.9);
+
+        }
+
+        .previous, .next
+        {
+            font-weight: bold;
+            font-size: 90px;
+            color: grey;
+            position: absolute;
+            bottom: 40%;
+        }
+
+        .previous
+        {
+            left: -15%;
+        }
+        .next
+        {
+           right: -15%;
+        }
+
+        .previous:hover, .next:hover
+        {
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+      

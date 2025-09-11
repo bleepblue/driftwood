@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <link rel="preload" href="assets/smallBanner.png" as="image">
+    <link rel="stylesheet" href="videos_styles.css">
+</head>
+<body >
+    
+  
+   <a href="/"><img src="assets/smallBanner.png" id="smallBanner"></a>
+    
+        <nav id="nav">
+            <a href="songs.html">Songs</a>
+            <a href="photos.html">Photos</a>
+            <a href="videos.html">Videos</a>
+            <a href="contact.html">Contact</a>
+        </nav> 
+    <main>
+
+        <div class="thumbnailContainer">
+            <img src="assets/videos/thumbnails/harbour_lights_thumbnail.png" class="thumbnail">
+            <div class="caption">
+                Harbour Lights
+            </div>
+        </div>
+
+        <div class="thumbnailContainer">
+            <img src="assets/videos/thumbnails/hawkhurst_gang_thumbnail.png" class="thumbnail">
+            <div class="caption">
+                Hawkhurst Gang
+            </div>
+        </div>
+        
+        
+
+        <img id="greenMan" src="assets/greenman.png">
+
+    </main>
+    <div class="modal">
+        
+        <div class="wrapper">
+
+            <video class="modalContent" controls>
+                <source type="video/mp4" id="source">
+            </video>
+            <span class="close">&times;</span>
+            <span class="previous">&lt;</span>
+            <span class="next">&gt;</span>
+        </div>
+        
+    </div>
+
+</body>
+<script src="videos_javascript.js"></script>
+</html>

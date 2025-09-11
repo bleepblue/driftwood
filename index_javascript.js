@@ -1,9 +1,40 @@
-window.onpageshow = scrollToTop;
+
+
+window.onload = () => {
+    setTimeout(scrollDown, 1000)
+}
+
+// window.innerHeight + document.documentElement.scrollTop + 5 >= document.body.scrollHeight
+// document.documentElement.scrollTop >= window.innerHeight * 0.33
+//                     document.querySelector("nav").style.top = "9.1258vw";
+// document.documentElement.scrollTop >= ( window.innerWidth / window.innerHeight ) * 146
+// cursor shit
+// document.documentElement.scrollTop ===( Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight) - window.innerHeight )
+// document.documentElement.scrollTop >= window.innerHeight * 0.312
+ window.onpageshow = (event) => {
+    if (document.documentElement.scrollTop > 10)
+        {
+             document.getElementById("greenMan").style.opacity = 1;
+            document.getElementById("nav").style.borderTop = `2px solid rgba(255, 255, 255, 1)`;
+            document.querySelector(".textContainer").style.borderLeft = `2px solid rgba(255, 255, 255, 1)`;
+            document.querySelector(".textContainer").style.borderRight= `2px solid rgba(255, 255, 255, 1)`;
+        } 
+
+        console.log(event)
+
+            setTimeout(scrollDown, 1000)
+};
+
 let border = false;
 let maxScroll = false;
 function scroll()
 {
-    if (document.documentElement.scrollTop > (window.innerWidth * 0.157))
+        if( document.documentElement.scrollTop ===
+                ( Math.max( document.body.scrollHeight, 
+                document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, 
+                document.documentElement.offsetHeight) - 
+                    window.innerHeight )
+                )
         {
             
             if(maxScroll)
@@ -12,17 +43,14 @@ function scroll()
                 }
             else
                 {
-                    console.log(document.documentElement.scrollTop)
+
                     maxScroll = true;
                     document.querySelector("header").style.overflow = "hidden";
                     document.querySelector("header").style.zIndex = 1;
                     document.querySelector("main").style.zIndex = 0;
+                    document.querySelector("main").style.top = 0;
                     document.querySelector("nav").style.position = "sticky";
-                    document.querySelector("nav").style.top = "9.1258vw";
-                    document.querySelector("main").style.cursor ="";
-                    document.querySelector("nav").style.cursor = "";
-                    document.querySelector('nav').removeEventListener("click", clickScroll);
-                    document.querySelector('main').removeEventListener("click", clickScroll);
+                   // document.querySelector("nav").style.top = "5.29vh";
                 }
 
         }
@@ -36,22 +64,10 @@ function scroll()
                     document.querySelector("main").style.zIndex = 1;
                     document.querySelector("nav").style.position = "relative";
                     document.querySelector("nav").style.top = "0px";
-                    document.querySelector("main").style.cursor ="pointer";
-                    document.querySelector("nav").style.cursor = "pointer";
-                    document.querySelector('nav').addEventListener("click", clickScroll);
-                    document.querySelector('main').addEventListener("click", clickScroll);
 
                 }
-            if(hoverEnd)
-                {
-                    if(document.documentElement.scrollTop >= window.innerWidth / 20 + 10)
-                        {
-                            hoverEnd = false;
-                            activated = false;
-                        }
-                   
-                }
-            let num = (window.innerWidth * 0.157) - document.documentElement.scrollTop;
+            let num = window.innerWidth / 100 * 15.8 - document.documentElement.scrollTop;
+
             document.querySelector("nav").style.top = num + "px";
             document.querySelector("main").style.top = num + "px";
             if (document.documentElement.scrollTop <= window.innerWidth * 0.14)
@@ -84,109 +100,28 @@ function scroll()
 
 window.onscroll = scroll;
 
-
-
-
-let hoverEnd = false;
 let intervalID;
-let activated = false;
 
-function navUp()
+function scrollDown()
 {
-    if(document.documentElement.scrollTop != 0)
-        {
-            return;
-        }
-    if(activated)
-        { 
-            return;
-        }
-   
-
-            
-           
-                activated = true;
-                intervalID = setInterval(function()
-                {
-                if(document.documentElement.scrollTop >= window.innerWidth / 20)
-                    {
-                        clearInterval(intervalID);
-                        hoverEnd = true;
-                        return;
-                        
-                        
-                    }
-                else
-                    {
-                        document.documentElement.scrollTop += 1;
-                    }
-
-                }, 2)
-                
-        
-}
-
-function navDown()
-{
-    if(!activated)
-        {
-            return;
-        }
-    else
-        {
-            clearInterval(intervalID);
-            activated = false;
-            intervalID = setInterval(function()
-                {
-                        if(document.documentElement.scrollTop == 0)
-                            {
-                                clearInterval(intervalID);
-                                return;
-                            }
-                        else
-                            {
-                                document.documentElement.scrollTop -= 1;
-                            }
-                }, 2)
-        }
-}
-
-function clickScroll()
-{
-    activated = false;
+    
+    
     clearInterval(intervalID);
-    intervalID = setInterval(function(){
-        if(document.documentElement.scrollTop >= window.innerWidth * 0.157)
+    intervalID = setInterval(() => {
+        if( document.documentElement.scrollTop ===
+                ( Math.max( document.body.scrollHeight, 
+                document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, 
+                document.documentElement.offsetHeight) - 
+                    window.innerHeight 
+                )
+)
             {
                 clearInterval(intervalID);
                 return;
             }
         else
             {
-                document.documentElement.scrollTop += 3;
+                document.documentElement.scrollTop += 4;
             }
-    }, 2)
-    
+    }, 20)
 }
-
-function scrollToTop()
-{
-    clearInterval(intervalID);
-    intervalID = setInterval(function(){
-        if(document.documentElement.scrollTop == 0)
-            {
-                clearInterval(intervalID);
-                return;
-            }
-        else
-            {
-                document.documentElement.scrollTop -= 100;
-            }
-    }, 1)
-    
-}
-
-document.getElementById("banner").addEventListener('mouseenter', navDown);
-document.querySelector("main").addEventListener('click', clickScroll);
-document.querySelector("main").addEventListener('mouseenter', navUp);
-document.getElementById("nav").addEventListener('click', clickScroll);
