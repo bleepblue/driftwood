@@ -13,7 +13,7 @@ function play(event)
             else
                 {
                     event.target.parentElement.previousElementSibling.play();
-                    currentlyPlaying = event.target.previousElementSibling.id;
+                    currentlyPlaying = event.target.parentElement.previousElementSibling.id;
                 }
             playingMusic = true;
             event.target.parentElement.querySelector("polygon").style.display  = "none";
